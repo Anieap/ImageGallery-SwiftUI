@@ -9,20 +9,24 @@ This app allows the user to select an image to view the image details and to ‘
 
 
 ##Requirements
+
 Ios 16 or later
 
 
 ##Design pattern used
+
 The MVVM design architecture is used for this app.
 
 
 ##Third party libraries used
+
 SDWebImageSwiftUI
 
 It is a popular third-party library for asynchronous image downloading and cashing images in iOS and macOS applications. SDWebImageSwiftUI has added to this app by using swift package manager. It is easy to use and also, a proven library with great support and updates.
 
 
 ##Improvements needed
+
 Should add a network reachability check
 
 It will be better to optimize the code by creating a generic item for WebImage.
