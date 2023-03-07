@@ -21,16 +21,14 @@ class GalleryViewModel: ObservableObject {
     func fetchNextPage() {
         imageService
             .fetchImages(page: currentPage, responseType: [ImageModel].self) { result in
-            switch result {
-            case .success(let images):
-                DispatchQueue.main.async {
+                switch result {
+                case .success(let images):
                     self.images.append(contentsOf: images)
                     self.currentPage += 1
+                case .failure(let error):
+                    print("Error fetching images: \(error)")
                 }
-            case .failure(let error):
-                print("Error fetching images: \(error)")
             }
-        }
     }
     
     func getImageUrlString(_ urlString: String) -> URL? {
@@ -41,9 +39,5 @@ class GalleryViewModel: ObservableObject {
         if lastImage == images.last {
             self.fetchNextPage()
         }
-    }
-    
-    func getSelectedImage(url: String) -> UIImage? {
-        return UIImage(contentsOfFile: url)
     }
 }

@@ -31,7 +31,9 @@ class ImageWebService: WebService {
 
             do {
                 let images = try JSONDecoder().decode(responseType.self, from: data)
-                completion(.success(images))
+                DispatchQueue.main.async {
+                    completion(.success(images))
+                }
             } catch {
                 completion(.failure(error))
             }

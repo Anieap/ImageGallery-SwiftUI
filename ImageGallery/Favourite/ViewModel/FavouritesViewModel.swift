@@ -11,7 +11,7 @@ import Combine
 
 class FavouritesViewModel: ObservableObject {
     @Published var favouriteStore = FavouriteStore.shared
-    private var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     
     init() {
         favouriteStore.$favourites
