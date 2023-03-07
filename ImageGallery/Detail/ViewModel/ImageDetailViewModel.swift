@@ -10,7 +10,11 @@ import Foundation
 final class ImageDetailViewModel: ObservableObject {
     @Published var iconName: String = "heart"
     
-    let favouriteStore = FavouriteStore.shared
+    let favouriteStore: FavouriteStoreType
+    
+    init(favouriteStore: FavouriteStoreType = FavouriteStore.shared) {
+        self.favouriteStore = favouriteStore
+    }
     
     func initializeUI(imageModel: ImageModel?) {
         guard let imageModel = imageModel else { return }

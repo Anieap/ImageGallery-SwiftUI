@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class FavouriteStore: ObservableObject {
+protocol FavouriteStoreType {
+    var favourites: [ImageModel] { get }
+    func handleFavourites(using imageModel: ImageModel)
+}
+
+final class FavouriteStore: FavouriteStoreType, ObservableObject {
     
     static let shared = FavouriteStore()
     
